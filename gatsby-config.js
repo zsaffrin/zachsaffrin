@@ -39,17 +39,5 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Zach Saffrin',
-        short_name: 'ZachSaffrin',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#581111',
-        display: 'standalone',
-      },
-    },
-    'gatsby-plugin-offline',
   ],
 };
