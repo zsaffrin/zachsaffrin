@@ -7,6 +7,12 @@ import Img from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+const Emoji = ({ label, symbol }) => (
+  <span role="img" aria-label={label || ''} aria-hidden={!label}>
+    {symbol}
+  </span>
+);
+
 const AboutPage = ({ data }) => {
   const socialLinks = data.socialLinks.childrenSocialLinksJson;
 
@@ -149,7 +155,7 @@ const AboutPage = ({ data }) => {
     `;
   });
   const FAIcon = styled(FontAwesomeIcon)`
-    margin-right: 2px;
+    margin-right: 3px;
   `;
   const InlineIcon = styled(Img)`
     display: inline-block;
@@ -157,6 +163,9 @@ const AboutPage = ({ data }) => {
     margin-right: 2px;
     width: 0.9em;
     vertical-align: middle;
+  `;
+  const MediumText = styled.span`
+    font-size: 0.8em;
   `;
 
   return (
@@ -244,7 +253,9 @@ const AboutPage = ({ data }) => {
               >
                 GraphQL
               </a>
-              , styled with 💅
+              , styled with
+              {' '}
+              <Emoji label="styled-components" symbol="💅" />
               <a
                 href="https://www.styled-components.com/"
                 rel="noopener noreferrer"
@@ -271,16 +282,16 @@ const AboutPage = ({ data }) => {
 
             <SiteCreditTitle>Hosting</SiteCreditTitle>
             <p>
-              Been using
-              {' '}
-              <strong>DigitalOcean</strong>
-              {' '}
-but now we&apos;re on Gatsby maybe we&apos;ll
-              flip to
-              {' '}
-              <strong>Netlify</strong>
-              {' '}
-for free
+              <InlineIcon fluid={data.netlifyIcon.childImageSharp.fluid} />
+              <a
+                href="https://www.netlify.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Netlify home page"
+                id="netlify"
+              >
+                Netlify
+              </a>
             </p>
 
             <SiteCreditTitle>Fonts</SiteCreditTitle>
@@ -310,21 +321,41 @@ for free
                 </a>
               </div>
               <TabularEntryFullWidth>
-                Fonts are served from the
-                {' '}
-                <a
-                  href="https://fonts.google.com"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label="Google Fonts main site"
-                  id="googlefonts"
-                >
-                  Google Fonts
-                </a>
-                {' '}
-                API
+                <MediumText>
+                  Fonts are served from the
+                  {' '}
+                  <FAIcon icon={['fab', 'google']} />
+                  <a
+                    href="https://fonts.google.com"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label="Google Fonts main site"
+                    id="googlefonts"
+                  >
+                    Google Fonts
+                  </a>
+                  {' '}
+                  API
+                </MediumText>
               </TabularEntryFullWidth>
             </TabularEntry>
+
+            <SiteCreditTitle>Icons</SiteCreditTitle>
+            <p>
+              Icons are from
+              {' '}
+              <a
+                href="https://fontawesome.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="FontAwesome home page"
+                id="fontawesome"
+              >
+                FontAwesome
+              </a>
+              {' '}
+              where available, unicode emoji if possible, otherwise are locally cached static images
+            </p>
           </SiteCredits>
         </PageSection>
       </AboutPageLayout>
@@ -353,6 +384,13 @@ export const query = graphql`
       }
     }
     graphqlIcon: file(name: { eq: "graphql-icon" }) {
+      childImageSharp {
+        fluid(maxWidth: 50) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    netlifyIcon: file(name: { eq: "netlify-icon" }) {
       childImageSharp {
         fluid(maxWidth: 50) {
           ...GatsbyImageSharpFluid
