@@ -1,6 +1,6 @@
 # ZachSaffrin
 
-Personal profile site for Zach Saffrin - [http://zachsaffrin.com](http://zachsaffrin.com)
+Personal profile site for Zach Saffrin - [https://zachsaffrin.com](https://zachsaffrin.com)
 
 This portfolio is a Gatsby site, composed with React and GraphQL, styled with styled-components, using webfonts from Google Fonts and FontAwesome.
 

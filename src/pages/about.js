@@ -158,6 +158,15 @@ const AboutPage = ({ data }) => {
       font-family: ${text.headingFontFamily}
     `;
   });
+  const TypeSampleLink = styled.div`
+    & a {
+      word-break: break-word;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 0.8em;
+    }
+  `;
   const FAIcon = styled(FontAwesomeIcon)(
     ({ color }) => `
       color: ${color || 'inherit'}
@@ -319,7 +328,7 @@ const AboutPage = ({ data }) => {
             <SiteCreditTitle>Fonts</SiteCreditTitle>
             <TabularEntry>
               <HeadingTypeSample>Raleway</HeadingTypeSample>
-              <div>
+              <TypeSampleLink>
                 <a
                   href="https://www.theleagueofmoveabletype.com/raleway"
                   rel="noopener noreferrer"
@@ -329,9 +338,9 @@ const AboutPage = ({ data }) => {
                 >
                   theleagueofmoveabletype.com/raleway
                 </a>
-              </div>
+              </TypeSampleLink>
               <TypeSample>Lato</TypeSample>
-              <div>
+              <TypeSampleLink>
                 <a
                   href="http://www.latofonts.com/"
                   rel="noopener noreferrer"
@@ -341,7 +350,7 @@ const AboutPage = ({ data }) => {
                 >
                   latofonts.com
                 </a>
-              </div>
+              </TypeSampleLink>
               <TabularEntryFullWidth>
                 <MediumText>
                   Fonts are served from the
