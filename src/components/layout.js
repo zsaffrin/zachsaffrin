@@ -1,53 +1,66 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { ThemeProvider } from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCodepen, faGithub, faReact, faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import zsTheme from '../themes/zsTheme';
+import Header from './header';
+import './layout.css';
 
-import Header from "./header"
-import "./layout.css"
+library.add(faEnvelope, faCodepen, faGithub, faReact, faTwitter);
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ children }) => {
+  const SiteLayout = styled.div`
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+  `;
+
+  const ContentSection = styled.div(({ theme }) => {
+    const { spacing } = theme;
+
+    return `
+      display: grid;
+      grid-template-columns: minmax(auto, 960px);
+      justify-content: center;
+      padding: 0 ${spacing[3]} 4em;
+    `;
+  });
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+      `}
+      render={data => (
+        <div>
+          <ThemeProvider theme={zsTheme}>
+            <SiteLayout>
+              <Header siteTitle={data.site.siteMetadata.title} />
+              <ContentSection>
+                <main>{children}</main>
+              </ContentSection>
+            </SiteLayout>
+          </ThemeProvider>
         </div>
-      </>
-    )}
-  />
-)
+      )}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

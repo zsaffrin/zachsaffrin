@@ -1,0 +1,34 @@
+[
+  {
+    "id": "74265270",
+    "name": "Email",
+    "label": "zach@zachsaffrin.com",
+    "link": "mailto:zach@zachsaffrin.com",
+    "color": "#581111",
+    "icon": ["fas", "envelope"]
+  },
+  {
+    "id": "1336163788",
+    "name": "Twitter",
+    "link": "https://twitter.com/ZachSaffrin",
+    "label": "@ZachSaffrin",
+    "color": "#344152",
+    "icon": ["fab", "twitter"]
+  },
+  {
+    "id": "91168639",
+    "name": "GitHub",
+    "link": "https://github.com/zsaffrin",
+    "label": "zsaffrin",
+    "color": "#5a5e5e",
+    "icon": ["fab", "github"]
+  },
+  {
+    "id": "3779001662",
+    "name": "Codepen",
+    "link": "https://codepen.io/zachsaffrin/",
+    "label": "zachsaffrin",
+    "color": "#111",
+    "icon": ["fab", "codepen"]
+  }
+]
