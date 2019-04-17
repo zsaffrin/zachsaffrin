@@ -23,18 +23,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Zach Saffrin',
-        short_name: 'ZachSaffrin',
-        start_url: '/',
-        background_color: '#2a3442',
-        theme_color: '#2a3442',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-      },
-    },
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-prefetch-google-fonts',
@@ -49,6 +37,17 @@ module.exports = {
             variants: ['400', '700'],
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Zach Saffrin',
+        short_name: 'ZachSaffrin',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#581111',
+        display: 'standalone',
       },
     },
     'gatsby-plugin-offline',
