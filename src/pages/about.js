@@ -148,6 +148,9 @@ const AboutPage = ({ data }) => {
       font-family: ${text.headingFontFamily}
     `;
   });
+  const FAIcon = styled(FontAwesomeIcon)`
+    margin-right: 2px;
+  `;
   const InlineIcon = styled(Img)`
     display: inline-block;
     margin-top: -4px;
@@ -218,7 +221,7 @@ const AboutPage = ({ data }) => {
               {' '}
               site, composed with
               {' '}
-              <FontAwesomeIcon icon={['fab', 'react']} />
+              <FAIcon icon={['fab', 'react']} />
               <a
                 href="https://reactjs.org/"
                 rel="noopener noreferrer"
@@ -253,6 +256,7 @@ const AboutPage = ({ data }) => {
               </a>
               . If you&apos;re interested, I invite you to explore the source code on
               {' '}
+              <FAIcon icon={['fab', 'github']} />
               <a
                 href="https://github.com/zsaffrin/zs-homepage"
                 rel="noopener noreferrer"
