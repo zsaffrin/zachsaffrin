@@ -86,18 +86,18 @@ const AboutPage = ({ data }) => {
     `;
   });
   const SiteCredits = styled.div(({ theme }) => {
-    const { spacing } = theme;
+    const { colors, spacing } = theme;
     return `
       display: grid;
       grid-template-columns: auto 1fr;
       grid-gap: ${spacing[4]};
 
       & a {
-        color: var(--medred);
+        color: ${colors.medred};
 
         &:hover,
         &:focus {
-          color: var(--lightred);
+          color: ${colors.lightred};
         }
       }
 
