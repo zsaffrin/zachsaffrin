@@ -108,12 +108,8 @@ const AboutPage = ({ data }) => {
       }
 
       @media (max-width: 600px) {
-        grid-template-columns: 1fr;
         grid-gap: ${spacing[2]};
-
-        & p {
-          margin-bottom: ${spacing[3]};
-        }
+        grid-template-columns: 1fr;
       }
     `;
   });
@@ -122,6 +118,14 @@ const AboutPage = ({ data }) => {
     return `
       color: ${colors.darkred};
       text-transform: none;
+    `;
+  });
+  const SiteCreditContent = styled.div(({ theme }) => {
+    const { spacing } = theme;
+    return `
+      @media (max-width: 600px) {
+        padding-bottom: ${spacing[3]}
+      }
     `;
   });
   const Muted = styled.span(({ theme }) => {
@@ -154,9 +158,12 @@ const AboutPage = ({ data }) => {
       font-family: ${text.headingFontFamily}
     `;
   });
-  const FAIcon = styled(FontAwesomeIcon)`
-    margin-right: 3px;
-  `;
+  const FAIcon = styled(FontAwesomeIcon)(
+    ({ color }) => `
+      color: ${color || 'inherit'}
+      margin-right: 3px;
+    `,
+  );
   const InlineIcon = styled(Img)`
     display: inline-block;
     margin-top: -4px;
@@ -166,6 +173,9 @@ const AboutPage = ({ data }) => {
   `;
   const MediumText = styled.span`
     font-size: 0.8em;
+  `;
+  const DontWrap = styled.span`
+    white-space: nowrap;
   `;
 
   return (
@@ -207,92 +217,104 @@ const AboutPage = ({ data }) => {
           <h2>This Site / Colophon</h2>
           <SiteCredits>
             <SiteCreditTitle>Design and Development</SiteCreditTitle>
-            <p>
+            <SiteCreditContent>
               <strong>Zach Saffrin</strong>
               {' '}
               <Muted>(obviously)</Muted>
-            </p>
+            </SiteCreditContent>
 
             <SiteCreditTitle>Architecture</SiteCreditTitle>
-            <div>
+            <SiteCreditContent>
               This portfolio is a
               {' '}
-              <InlineIcon fluid={data.gatsbyIcon.childImageSharp.fluid} />
-              <a
-                href="https://www.gatsbyjs.org/"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="GatsbyJS main site"
-                id="gatsby"
-              >
-                Gatsby
-              </a>
+              <DontWrap>
+                <InlineIcon fluid={data.gatsbyIcon.childImageSharp.fluid} />
+                <a
+                  href="https://www.gatsbyjs.org/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="GatsbyJS main site"
+                  id="gatsby"
+                >
+                  Gatsby
+                </a>
+              </DontWrap>
               {' '}
               site, composed with
               {' '}
-              <FAIcon icon={['fab', 'react']} />
-              <a
-                href="https://reactjs.org/"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="ReactJS main site"
-                id="react"
-              >
-                React
-              </a>
+              <DontWrap>
+                <FAIcon icon={['fab', 'react']} />
+                <a
+                  href="https://reactjs.org/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="ReactJS main site"
+                  id="react"
+                >
+                  React
+                </a>
+              </DontWrap>
               {' '}
               and
               {' '}
-              <InlineIcon fluid={data.graphqlIcon.childImageSharp.fluid} />
-              <a
-                href="https://graphql.org/"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="GraphQL main site"
-                id="graphql"
-              >
-                GraphQL
-              </a>
+              <DontWrap>
+                <InlineIcon fluid={data.graphqlIcon.childImageSharp.fluid} />
+                <a
+                  href="https://graphql.org/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="GraphQL main site"
+                  id="graphql"
+                >
+                  GraphQL
+                </a>
+              </DontWrap>
               , styled with
               {' '}
-              <Emoji label="styled-components" symbol="💅" />
-              <a
-                href="https://www.styled-components.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="styled-components main site"
-                id="styledcomponents"
-              >
-                styled-components
-              </a>
+              <DontWrap>
+                <Emoji label="styled-components" symbol="💅" />
+                <a
+                  href="https://www.styled-components.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="styled-components main site"
+                  id="styledcomponents"
+                >
+                  styled-components
+                </a>
+              </DontWrap>
               . If you&apos;re interested, I invite you to explore the source code on
               {' '}
-              <FAIcon icon={['fab', 'github']} />
-              <a
-                href="https://github.com/zsaffrin/zs-homepage"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="GitHub repository for this website"
-                id="githubzshomepage"
-              >
-                GitHub
-              </a>
+              <DontWrap>
+                <FAIcon icon={['fab', 'github']} />
+                <a
+                  href="https://github.com/zsaffrin/zs-homepage"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="GitHub repository for this website"
+                  id="githubzshomepage"
+                >
+                  GitHub
+                </a>
+              </DontWrap>
               .
-            </div>
+            </SiteCreditContent>
 
             <SiteCreditTitle>Hosting</SiteCreditTitle>
-            <p>
-              <InlineIcon fluid={data.netlifyIcon.childImageSharp.fluid} />
-              <a
-                href="https://www.netlify.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="Netlify home page"
-                id="netlify"
-              >
-                Netlify
-              </a>
-            </p>
+            <SiteCreditContent>
+              <DontWrap>
+                <InlineIcon fluid={data.netlifyIcon.childImageSharp.fluid} />
+                <a
+                  href="https://www.netlify.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="Netlify home page"
+                  id="netlify"
+                >
+                  Netlify
+                </a>
+              </DontWrap>
+            </SiteCreditContent>
 
             <SiteCreditTitle>Fonts</SiteCreditTitle>
             <TabularEntry>
@@ -324,16 +346,18 @@ const AboutPage = ({ data }) => {
                 <MediumText>
                   Fonts are served from the
                   {' '}
-                  <FAIcon icon={['fab', 'google']} />
-                  <a
-                    href="https://fonts.google.com"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    aria-label="Google Fonts main site"
-                    id="googlefonts"
-                  >
-                    Google Fonts
-                  </a>
+                  <DontWrap>
+                    <FAIcon icon={['fab', 'google']} color="#FF5353" />
+                    <a
+                      href="https://fonts.google.com"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      aria-label="Google Fonts main site"
+                      id="googlefonts"
+                    >
+                      Google Fonts
+                    </a>
+                  </DontWrap>
                   {' '}
                   API
                 </MediumText>
@@ -341,21 +365,24 @@ const AboutPage = ({ data }) => {
             </TabularEntry>
 
             <SiteCreditTitle>Icons</SiteCreditTitle>
-            <p>
+            <SiteCreditContent>
               Icons are from
               {' '}
-              <a
-                href="https://fontawesome.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="FontAwesome home page"
-                id="fontawesome"
-              >
-                FontAwesome
-              </a>
+              <DontWrap>
+                <FAIcon icon={['fab', 'font-awesome']} color="#3399F0" />
+                <a
+                  href="https://fontawesome.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="FontAwesome home page"
+                  id="fontawesome"
+                >
+                  FontAwesome
+                </a>
+              </DontWrap>
               {' '}
               where available, unicode emoji if possible, otherwise are locally cached static images
-            </p>
+            </SiteCreditContent>
           </SiteCredits>
         </PageSection>
       </AboutPageLayout>
