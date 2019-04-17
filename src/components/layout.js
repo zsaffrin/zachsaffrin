@@ -6,6 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   faCodepen,
+  faFontAwesome,
   faGithub,
   faGoogle,
   faReact,
@@ -16,7 +17,7 @@ import zsTheme from '../themes/zsTheme';
 import Header from './header';
 import './layout.css';
 
-library.add(faEnvelope, faCodepen, faGithub, faGoogle, faReact, faTwitter);
+library.add(faEnvelope, faCodepen, faFontAwesome, faGithub, faGoogle, faReact, faTwitter);
 
 const Layout = ({ children }) => {
   const SiteLayout = styled.div`
