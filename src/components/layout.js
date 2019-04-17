@@ -5,14 +5,18 @@ import { StaticQuery, graphql } from 'gatsby';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
-  faCodepen, faGithub, faReact, faTwitter,
+  faCodepen,
+  faGithub,
+  faGoogle,
+  faReact,
+  faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
 import zsTheme from '../themes/zsTheme';
 import Header from './header';
 import './layout.css';
 
-library.add(faEnvelope, faCodepen, faGithub, faReact, faTwitter);
+library.add(faEnvelope, faCodepen, faGithub, faGoogle, faReact, faTwitter);
 
 const Layout = ({ children }) => {
   const SiteLayout = styled.div`
