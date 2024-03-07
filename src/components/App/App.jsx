@@ -1,8 +1,21 @@
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom';
+import { Home } from './Home';
+import ErrorRoute from './ErrorRoute';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <ErrorRoute />
+  }
+]);
+
 const App = () => {
   return (
-    <div>
-      <h1>ZachSaffrin.com</h1>
-    </div>
+    <RouterProvider router={router} />
   );
 };
 
