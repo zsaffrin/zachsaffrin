@@ -1,22 +1,14 @@
-import {
-  createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom';
-import { Home } from './Home';
-import ErrorRoute from './ErrorRoute';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorRoute />
-  }
-]);
+import { Redirect, useRoute } from 'wouter';
+import { Main } from './Main';
 
 const App = () => {
-  return (
-    <RouterProvider router={router} />
-  );
+  const [match] = useRoute("(|about)");
+
+  if (match) {
+    return <Main />;
+  } else {
+    return <Redirect to="/" />;
+  }
 };
 
 export default App;
