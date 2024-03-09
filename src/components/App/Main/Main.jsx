@@ -1,8 +1,12 @@
+import { MainHeader } from './MainHeader';
 import { Home } from './Home';
 
 const Main = () => {
   return (
-    <Home />
+    <>
+      <MainHeader />
+      <Home />
+    </>
   );
 };
 
