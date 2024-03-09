@@ -1,8 +1,8 @@
 const MainHeader = () => {
   return (
-    <div>
+    <header>
       MainHeader
-    </div>
+    </header>
   );
 };
 
