@@ -1,14 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 import '@fontsource/lato';
 
-const GlobalStyle = createGlobalStyle(() => {
+const GlobalStyle = createGlobalStyle(({ theme }) => {
+  const { colorSettings } = theme;
+
   return `
     html { box-sizing: border-box; }
     *, *:before, *:after { box-sizing: inherit; }
 
     body {
-      background: #eee;
-      color: #111;
+      background: ${colorSettings.background};
+      color: ${colorSettings.bodyColor};
       font-size: 16px;
       margin: 0;
       font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
