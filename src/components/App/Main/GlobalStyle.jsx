@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle(({ theme }) => {
     body {
       background: ${colorSettings.background};
       color: ${colorSettings.bodyColor};
-      font-size: 16px;
+      font-size: 18px;
       margin: 0;
       font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
         "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
