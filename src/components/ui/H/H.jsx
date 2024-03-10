@@ -1,19 +1,19 @@
-import { arrayOf, boolean, node, number, oneOfType } from 'prop-types';
+import { arrayOf, bool, node, number, oneOfType } from 'prop-types';
 import styled from 'styled-components';
 import '@fontsource-variable/raleway';
 
-const StyledHeading = styled.div(({ compact, theme }) => {
+const StyledHeading = styled.div(({ $compact, theme }) => {
   const { space } = theme;
   return `
     font-family: 'Raleway Variable';
-    margin: ${compact ? 0 : `0 0 ${space.lg}`};
+    margin: ${$compact ? 0 : `0 0 ${space.lg}`};
     text-transform: uppercase;
   `;
 });
 
 const H = ({ children, compact, l, ...props }) => {
   return (
-    <StyledHeading as={`h${l}`} compact={compact ? 1 : 0} {...props}>
+    <StyledHeading as={`h${l}`} $compact={compact ? 1 : 0} {...props}>
       {children}
     </StyledHeading>
   );
@@ -23,7 +23,7 @@ H.propTypes = {
     arrayOf(node),
     node,
   ]),
-  compact: boolean,
+  compact: bool,
   l: number,
 };
 H.defaultProps = {
