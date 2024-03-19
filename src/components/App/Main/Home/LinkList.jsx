@@ -29,6 +29,7 @@ LinkList.propTypes = {
   items: arrayOf(
     shape({
       key: string,
+      image: string,
       target: string,
       title: string,
       desc: string,

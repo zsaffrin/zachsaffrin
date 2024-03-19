@@ -26,6 +26,7 @@ const projects = [
   {
     key: 'overeasy',
     target: 'https://overeasy-css.github.io/',
+    image: 'overeasy.svg',
     title: 'OverEasy',
     desc: 'A deliciously lightweight OOCSS grid and style framework',
   },

@@ -11,12 +11,25 @@ const ListItemLink = styled.a(({ theme }) => {
     border: 1px solid ${colors.lightgray};
     border-radius: 0.25rem;
     padding: ${space.lg};
-    display: block;
     transition: border 0.2s, background 0.2s;
+    display: grid;
+    grid-template-columns: max-content 1fr;
 
     &:hover {
       border: 1px solid ${colors.medblue};
       background: ${colors.brightwhite};
+    }
+  `;
+});
+
+const ItemImage = styled.div(({ theme }) => {
+  const { space } = theme;
+
+  return `
+    margin-right: ${space.lg};
+
+    & img {
+      width: 4.5rem;
     }
   `;
 });
@@ -37,17 +50,32 @@ const ItemDesc = styled.p`
 `;
 
 const LinkListItem = ({ item }) => {
+  let imgDiv = <div />;
+  if (item.image) {
+    const imgUrl = new URL(`../../../../assets/images/${item.image}`, import.meta.url).href;
+
+    imgDiv = (
+      <ItemImage>
+        <img src={imgUrl} alt={item.title} />
+      </ItemImage>
+    );
+  }
+
   return (
     <li>
       <ListItemLink href={item.target} target="_blank">
-        <ItemTitle>{item.title}</ItemTitle>
-        <ItemDesc>{item.desc}</ItemDesc>
+        {imgDiv}
+        <div>
+          <ItemTitle>{item.title}</ItemTitle>
+          <ItemDesc>{item.desc}</ItemDesc>
+        </div>
       </ListItemLink>
     </li>
   );
 };
 LinkListItem.propTypes = {
   item: shape({
+    image: string,
     target: string,
     title: string,
     desc: string,
