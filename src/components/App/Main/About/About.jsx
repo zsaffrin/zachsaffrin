@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import '@fontsource/lato';
 import '@fontsource-variable/raleway';
-import { H, Page } from '../../../ui';
+import { H, IconLink, Page } from '../../../ui';
 
 const Hero = styled.div`
   padding-top: 1rem;
@@ -94,14 +94,41 @@ const About = () => {
             Architecture
           </TableLabel>
           <div>
-            This portfolio is a single-page React app, developed using Vite
+            This portfolio is a single-page
+            {' '}
+            <IconLink
+              imgName="react.svg"
+              label="React"
+              target="https://react.dev/"
+            />
+            {' '}
+            app, developed using
+            {' '}
+            <IconLink
+              imgName="vite.svg"
+              label="Vite"
+              target="https://vitejs.dev/"
+            />
           </div>
 
           <TableLabel>
             Hosting
           </TableLabel>
           <div>
-            Hosted by Netlify, build auto-deployed from Github
+            Hosted by
+            {' '}
+            <IconLink
+              imgName="netlify.svg"
+              label="Netlify"
+              target="https://www.netlify.com/"
+            />
+            , build auto-deployed from
+            {' '}
+            <IconLink
+              imgName="github.svg"
+              label="Github"
+              target="https://github.com/zsaffrin/zachsaffrin/"
+            />
           </div>
 
           <TableLabel>
@@ -114,17 +141,47 @@ const About = () => {
               <LatoSample>Lato</LatoSample>
               <div>Body text and content</div>
             </FontSamples>
-            <Small>Fonts packaged into build with FontSource</Small>
+            <Small>
+              Fonts packaged into build with{' '}
+              <IconLink
+                imgName="fontsource.svg"
+                label="Fontsource"
+                target="https://fontsource.org/"
+              />
+            </Small>
           </div>
 
           <TableLabel>
-            Libraries
+            Utilities
           </TableLabel>
           <div>
-            <div>wouter for routing</div>
-            <div>Styled using styled-components</div>
-            <div>ESLint to keep my syntax legit</div>
-            <div>prop-types for non-typed prop structuring</div>
+            <div>
+              <IconLink
+                imgName="wouter.svg"
+                label="Wouter"
+                target="https://github.com/molefrog/wouter"
+              />
+              {' '}
+              for routing
+            </div>
+            <div>
+              <IconLink
+                emoji="💅"
+                label="styled-components"
+                target="https://styled-components.com/"
+              />
+              {' '}
+              for component styling
+            </div>
+            <div>
+              <IconLink
+                imgName="eslint.svg"
+                label="ESLint"
+                target="https://eslint.org/"
+              />
+              {' '}
+              to keep my syntax legit
+            </div>
           </div>
         </TableLayout>
       </Section>
